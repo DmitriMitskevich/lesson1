@@ -31,10 +31,15 @@ with conn:
     'Москва',
     'пр.Ломоносова д',
     '+7(495)9391000',
-    'info_demch@rector.msu.ru'        
+    'info_demch@rector.msu.ru'
     );"""
     curs.execute(list2)
     conn.commit()
+
+list3 = """SELECT * FROM справочник_персоналий_участников_конференции WHERE "ученая степень" = "доцент" AND "город" = "Минск";"""
+curs.execute(list3)
+vyb = curs.fetchall()
+print(vyb)
 
 with conn:
     attendee = """CREATE TABLE IF NOT EXISTS информация_связанная_с_участием_в_конференции(
@@ -59,10 +64,15 @@ with conn:
     '+',
     '02.04.2023',
     '+',
-    '04.04.2023'    
+    '04.04.2023'
     );"""
     curs.execute(attendee2)
     conn.commit()
+
+attendee3 = """SELECT "тема доклада" FROM информация_связанная_с_участием_в_конференции WHERE "докладчик или участник" LIKE 'Д%';"""
+curs.execute(attendee3)
+vyb2 = curs.fetchall()
+print(vyb2)
 
 with conn:
     info_conf = """CREATE TABLE IF NOT EXISTS информация_о_конференции(    
@@ -92,3 +102,9 @@ with conn:
     );"""
     curs.execute(info_conf2)
     conn.commit()
+
+info_conf3 = """SELECT * FROM информация_о_конференции;"""
+curs.execute(info_conf3)
+vyb3 = curs.fetchall()
+print(vyb3)
+
