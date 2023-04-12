@@ -1,3 +1,6 @@
+# Вывести данные из таблицы, созданной на предыдущем уроке.
+# Вывод всех данных из таблицы и вывод из таблицы данных подчиняющихся какому-то условию.
+
 import sqlite3
 conn = sqlite3.connect("database.db")
 with conn:
@@ -107,4 +110,3 @@ info_conf3 = """SELECT * FROM информация_о_конференции;"""
 curs.execute(info_conf3)
 vyb3 = curs.fetchall()
 print(vyb3)
-
